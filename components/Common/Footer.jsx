@@ -2,8 +2,8 @@
 import { css } from '@emotion/react';
 
 const footerStyle = css`
-  background-color: transparent; /* 배경 투명 */
-  border-top: 2px solid brown; /* 맨 위 갈색 선 */
+  background-color: transparent; 
+  border-top: 2px solid #715F00;
   color: #000;
   text-align: left;
   padding: 20px 0;
