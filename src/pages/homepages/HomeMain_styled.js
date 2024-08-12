@@ -2,18 +2,20 @@
 import styled from '@emotion/styled';
 
 export const Container= styled.div`
-display: flex;
-flex-direction: column;
-width: device-width;
-height: 100vh;
-overflow: hidden;
-background-color:  #fff9d6;
+  display: flex;
+  flex-direction: column;
+  width: 100%;  
+  height: 100vh; 
+  align-items: center;
+  justify-content: center;
+
 `;
 
 export const Header = styled.header`
   width: 100%;
   color: white;
   text-align: center;
+  padding: 10px;
 `;
 
 export const Main = styled.main`
@@ -24,4 +26,3 @@ export const Main = styled.main`
   width: 100%;
   overflow-y: auto;
 `;
-

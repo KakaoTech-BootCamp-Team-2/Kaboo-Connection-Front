@@ -19,11 +19,11 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path ="/" element={<HomeMain/>}></Route>
+        <Route path ="/" element={<HomeMain />}></Route>
       </Routes>
     </Router>
     
   )
 }
 
-export default App
+export default App;
