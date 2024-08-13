@@ -5,7 +5,7 @@ on:
     branches: ["main"]
 
 jobs:
-  build:
+  build-and-push-docker:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,25 +27,29 @@ jobs:
         run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 
       - name: Build Docker image
-        run: docker build -t "${{ secrets.DOCKERHUB_USERNAME }}"/kaboo-connection-front:latest .
+        run: docker build -t "${{ secrets.DOCKERHUB_USERNAME }}/kaboo-connection-front:latest" .
 
       - name: Push Docker image
-        run: docker push "${{ secrets.DOCKERHUB_USERNAME }}"/kaboo-connection-front:latest
+        run: docker push "${{ secrets.DOCKERHUB_USERNAME }}/kaboo-connection-front:latest"
 
-  deploy:
-    needs: build
+  deploy-to-ec2:
+    needs: build-and-push-docker
     runs-on: ubuntu-latest
 
     steps:
-      - name: Add SSH Key
-        run: |
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > key.pem
-          chmod 600 key.pem
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            CONTAINER_ID=$(sudo docker ps -q --filter "publish=80-8080")
 
-      - name: SSH into EC2 and deploy
-        run: |
-          ssh -i key.pem -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} \
-          "docker pull "${{ secrets.DOCKERHUB_USERNAME }}"/kaboo-connection-front:latest && \
-           docker stop kaboo-connection-container || true && \
-           docker rm kaboo-connection-container || true && \
-           docker run -d -p 80:80 --name kaboo-connection-container "${{ secrets.DOCKERHUB_USERNAME }}"/kaboo-connection-front:latest"
+            if [ ! -z "$CONTAINER_ID" ]; then
+              sudo docker stop $CONTAINER_ID
+              sudo docker rm $CONTAINER_ID
+            fi
+
+            sudo docker pull "${{ secrets.DOCKERHUB_USERNAME }}/kaboo-connection-front:latest"
+            sudo docker run --name kaboo-connection-container -d -p 80:8080 -e TZ=Asia/Seoul "${{ secrets.DOCKERHUB_USERNAME }}/kaboo-connection-front:latest"
