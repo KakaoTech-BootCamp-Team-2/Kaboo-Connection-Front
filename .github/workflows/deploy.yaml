@@ -37,9 +37,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Add SSH Key
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > key.pem
+          chmod 600 key.pem
+
       - name: SSH into EC2 and deploy
         run: |
-          ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} \
+          ssh -i key.pem -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} \
           "docker pull "${{ secrets.DOCKERHUB_USERNAME }}"/kaboo-connection-front:latest && \
            docker stop kaboo-connection-container || true && \
            docker rm kaboo-connection-container || true && \
