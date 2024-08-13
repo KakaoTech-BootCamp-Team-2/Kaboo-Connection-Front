@@ -1,21 +1,30 @@
 import Layout from "../components/Common/Layout"
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useLocation,
+} from 'react-router-dom';
+
+import Header from './components/Header';
+import HomeMain from './pages/homepages/HomeMain';
 
 function App() {
-  
+
 
   return (
-    <Layout>
-      <h1>햄스터</h1>
-      <h4>호로롯</h4>
-      <h1>햄스터</h1>
-      <h4>호로롯</h4>
-      <h1>햄스터</h1>
-      <h4>호로롯</h4>
-      <h1>햄스터</h1>
-      <h4>호로롯</h4>
-    </Layout>
-   
+    <Router>
+      <Routes>
+        <Route path ="/" element={<HomeMain />}></Route>
+      </Routes>
+    </Router>
+    
   )
 }
 
-export default App
+export default App;
