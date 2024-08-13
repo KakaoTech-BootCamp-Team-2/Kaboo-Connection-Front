@@ -8,7 +8,7 @@ function HomeMain() {
       <main.Header>
         <Header />
       </main.Header>
-      <main.Main>CI/CD 테스트!</main.Main>
+      <main.Main></main.Main>
     </main.Container>
   );
 }
