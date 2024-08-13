@@ -1,0 +1,46 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build application
+      run: npm run build
+
+    - name: Docker login
+      run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+
+    - name: Build Docker image
+      run: docker build -t your-dockerhub-username/kaboo-connection-front:latest .
+
+    - name: Push Docker image
+      run: docker push your-dockerhub-username/kaboo-connection-front:latest
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: SSH into EC2 and deploy
+      run: |
+        ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} \
+        "docker pull your-dockerhub-username/kaboo-connection-front:latest && \
+         docker stop kaboo-connection-container || true && \
+         docker rm kaboo-connection-container || true && \
+         docker run -d -p 80:80 --name kaboo-connection-container your-dockerhub-username/kaboo-connection-front:latest"
