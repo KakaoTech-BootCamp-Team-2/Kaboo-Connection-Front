@@ -10,12 +10,14 @@ const Footer = () => {
         value="카카오 부트캠프 2조: 춘식2"
         fontFamily="KakaoBold"
         fontSize={15}
+        color="#000"
         style={strongTextStyle}
       />
       <Text
         value="박세호 박지혁 안태진 정은채 한주리"
         fontFamily="KakaoRegular"
         fontSize={15}
+        color="#715F00"
         style={normalTextStyle}
       />
     </footer>
