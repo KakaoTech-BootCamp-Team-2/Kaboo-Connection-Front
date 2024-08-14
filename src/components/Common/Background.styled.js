@@ -2,12 +2,12 @@
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 
-const float = keyframes`
+export const float = keyframes`
   0%, 100% { transform: translateY(0) translateX(0); }
   50% { transform: translateY(-300px) translateX(300px); }
 `;
 
-const Circle = styled.div`
+export const Circle = styled.div`
   position: absolute;
   width: 1800px;
   height: 1300px;
@@ -22,7 +22,7 @@ const Circle = styled.div`
   top: ${(props) => props.y}%;
 `;
 
-const BackgroundContainer = styled.div`
+export const BackgroundContainer = styled.div`
   position: fixed; // 화면에 고정
   top: 0;
   left: 0;
