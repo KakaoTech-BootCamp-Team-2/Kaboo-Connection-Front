@@ -1,5 +1,5 @@
 import React from "react";
-import * as styles from "./Header_styled";
+import * as styles from "./Header.styled";
 import logo from "../../assets/images/kaboologo.png";
 import peoplelogo from "../../assets/images/peoplelogo.png";
 

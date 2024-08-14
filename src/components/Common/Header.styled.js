@@ -8,7 +8,7 @@ export const HeaderContainer = styled.header`
   justify-content: flex-start;
   background-color: rgb(255, 255, 255, 0.5);
   color: white;
-  width: 100vw;
+  width: 100%;
   height: 100px;
   backdrop-filter: blur(10px);
 `;
