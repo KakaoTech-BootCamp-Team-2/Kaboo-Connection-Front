@@ -1,15 +1,14 @@
 import React from "react";
-import * as main from "./HomeMain_styled";
-import Header from "../../components/Header";
+import Layout from "../../components/Common/Layout";
 
 function HomeMain() {
   return (
-    <main.Container>
-      <main.Header>
-        <Header />
-      </main.Header>
-      <main.Main></main.Main>
-    </main.Container>
+    <Layout>
+      <h1>햄스터</h1>
+      <h1>햄스터</h1>
+      <h1>햄스터</h1>
+      <h1>햄스터</h1>
+    </Layout>
   );
 }
 
