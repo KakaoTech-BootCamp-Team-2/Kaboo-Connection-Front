@@ -1,11 +1,11 @@
-import HomeMain from "./pages/homepages/HomeMain";
+import PeopleListPage from "./pages/PeopleListPage";
 import GlobalStyle from "./components/Common/GlobalStyle";
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <HomeMain></HomeMain>
+      <PeopleListPage></PeopleListPage>
     </>
   );
 }

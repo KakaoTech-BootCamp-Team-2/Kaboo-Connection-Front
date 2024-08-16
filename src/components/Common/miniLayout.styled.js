@@ -14,10 +14,10 @@ export const Line = styled.div`
 `;
 
 export const CenterContent = styled.div`
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  // justify-content: space-between; 별로임
+  justify-content: center;
   gap: 20px;
   margin: 10px;
 `;
