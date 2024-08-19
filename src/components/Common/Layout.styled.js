@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
 
-const LayoutContainer = styled.div`
+export const LayoutContainer = styled.div`
   position: relative;
   width: 100vw;
   display: flex;
@@ -11,10 +11,9 @@ const LayoutContainer = styled.div`
   min-height: 100vh;
 `;
 
-const MainContent = styled.main`
+export const MainContent = styled.main`
   flex: 1;
   padding: 0px; /* 콘텐츠 패딩 */
-
   display: flex;
   justify-content: center;
   align-items: center;
