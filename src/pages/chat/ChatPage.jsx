@@ -1,15 +1,12 @@
 import React from "react";
 import Layout from "../../components/Common/Layout";
 import ChatMain from "../../pages/chat/ChatMain";
-function HomeMain() {
+function ChatPage() {
   return (
     <Layout>
-      <h1>햄스터</h1>
-      <h1>햄스터</h1>
-      <h1>햄스터</h1>
-      <h1>햄스터ss</h1>
+      <ChatMain />
     </Layout>
   );
 }
 
-export default HomeMain;
+export default ChatPage;

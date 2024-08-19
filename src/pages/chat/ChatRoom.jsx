@@ -1,12 +1,17 @@
 import React from "react";
 import * as styles from "./styled/ChatRoom.styled";
-import Layout from "../../components/Common/Layout";
+import Text from "../../components/Common/Text";
 
-function ChatRoom() {
+const ChatRoom = (props) => {
   return (
     <styles.TotalWrapper>
       <styles.NameWrapper>
-        <styles.Name></styles.Name>
+        <Text
+          value={props.name}
+          fontFamily="KakaoBold"
+          fontSize={45}
+          color="#000"
+        ></Text>
       </styles.NameWrapper>
       <styles.ChatRoomWrapper></styles.ChatRoomWrapper>
 
@@ -18,5 +23,5 @@ function ChatRoom() {
       </styles.BottomWrapper>
     </styles.TotalWrapper>
   );
-}
+};
 export default ChatRoom;

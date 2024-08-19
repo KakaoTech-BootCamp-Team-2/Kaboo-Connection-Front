@@ -6,7 +6,7 @@ export const TotalWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   align-items: center;
   justify-content: center;
 `;
@@ -28,7 +28,7 @@ export const Title = styled.h1`
 export const ChatWrapper = styled.div`
   width: 90%;
   height: 90%;
-  background-color: gray;
+  background-color: white;
   display: flex;
   flex-direction: row;
   jusitfy-content: center;
