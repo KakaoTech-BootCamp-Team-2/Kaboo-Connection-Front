@@ -11,12 +11,14 @@ import {
 
 import Header from "./components/Common/Header";
 import HomeMain from "./pages/homepages/HomeMain";
+import ChatMain from "./pages/chat/ChatMain";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<HomeMain />}></Route>
+        <Route path="/chat" element={<ChatMain />}></Route>
       </Routes>
     </Router>
   );

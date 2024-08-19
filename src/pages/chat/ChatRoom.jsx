@@ -1,5 +1,6 @@
 import React from "react";
 import * as styles from "./styled/ChatRoom.styled";
+import Layout from "../../components/Common/Layout";
 
 function ChatRoom() {
   return (

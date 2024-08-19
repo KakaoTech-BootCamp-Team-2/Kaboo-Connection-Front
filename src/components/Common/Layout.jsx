@@ -7,7 +7,7 @@ import { LayoutContainer, MainContent } from "./Layout.styled";
 const Layout = ({ children }) => {
   return (
     <>
-      <Background />
+      <Background></Background>
       <LayoutContainer>
         <Header />
         <MainContent>{children}</MainContent>

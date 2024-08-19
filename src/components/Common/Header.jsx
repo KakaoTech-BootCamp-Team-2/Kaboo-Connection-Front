@@ -15,7 +15,7 @@ function Header() {
         <styles.NavItem href="/">카부 게시판</styles.NavItem>
         <styles.NavItem href="#about">카부 프로젝트</styles.NavItem>
         <styles.NavItem href="#services">카부 편의</styles.NavItem>
-        <styles.NavItem href="#contact">카부 커넥션</styles.NavItem>
+        <styles.NavItem href="/chat">카부 커넥션</styles.NavItem>
       </styles.NavBar>
       <styles.PeopleLogoWrapper>
         <styles.PeopleLogo src={peoplelogo} />

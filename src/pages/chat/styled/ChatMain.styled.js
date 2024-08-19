@@ -9,7 +9,6 @@ export const TotalWrapper = styled.div`
   height: 100%;
   align-items: center;
   justify-content: center;
-  background-color: white;
 `;
 
 export const TitleWrapper = styled.div`
