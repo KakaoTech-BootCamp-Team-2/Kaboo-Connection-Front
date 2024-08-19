@@ -1,10 +1,10 @@
 import GlobalStyle from "./components/Common/GlobalStyle";
-import { PeopleListPage } from "./pages/PeopleListPage";
+import { PeopleDetailPage } from "./pages/PeopleDetailPage/PeopleDetailPage.jsx";
 function App() {
   return (
     <>
       <GlobalStyle />
-      <PeopleListPage></PeopleListPage>
+      <PeopleDetailPage></PeopleDetailPage>
     </>
   );
 }

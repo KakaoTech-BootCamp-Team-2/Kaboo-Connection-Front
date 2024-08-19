@@ -1,12 +1,12 @@
 /** @jsxImportSource @emotion/react */
-import Text from "../Common/Text";
+import Text from "../../Common/Text.jsx";
 import React from "react";
 import {
   CardContainer,
   ProfileImage,
   Name,
   Affiliation,
-} from "./peopleCard.styled";
+} from "./peopleCard.styled.js";
 
 const PeopleCard = ({ image, name, affiliation, onClick }) => {
   return (
