@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/Common/Layout";
-import MiniLayout from "../components/Common/MiniLayout";
+import MiniLayout from "../components/Common/miniLayout.jsx";
 import PeopleCard from "../components//PeopleListComponents/peopleCard";
 
 export const PeopleListPage = () => {
