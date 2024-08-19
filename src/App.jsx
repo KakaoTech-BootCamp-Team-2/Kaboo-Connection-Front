@@ -9,9 +9,10 @@ import {
   Link,
   useLocation,
 } from 'react-router-dom';
-
 import Header from './components/Header';
 import HomeMain from './pages/homepages/HomeMain';
+import GlobalStyle from "./components/Common/GlobalStyle";
+import { PeopleListPage } from "./pages/PeopleListPage";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
     </Router>
     
   )
-}
+};
+
 
 export default App;
