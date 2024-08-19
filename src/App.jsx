@@ -10,13 +10,15 @@ import {
 } from "react-router-dom";
 
 import Header from "./components/Common/Header";
-import HomeMain from "./pages/homepages/HomeMain";
+import HomePage from "./pages/Homepage/HomePage.jsx";
+import {VideoPage} from "./pages/VideoPage.jsx";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomeMain />}></Route>
+        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/video" element={<VideoPage />}></Route>
       </Routes>
     </Router>
   );
