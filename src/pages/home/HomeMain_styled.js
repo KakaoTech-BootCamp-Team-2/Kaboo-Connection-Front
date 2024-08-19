@@ -8,6 +8,7 @@ export const Container= styled.div`
   height: 100vh; 
   align-items: center;
   justify-content: center;
+  background-color: blue;
 
 `;
 

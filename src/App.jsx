@@ -11,18 +11,21 @@ import {
 } from 'react-router-dom';
 
 import Header from './components/Header';
-import HomeMain from './pages/homepages/HomeMain';
+import HomeMain from './pages/home/HomeMain';
+import ChatMain from './pages/chat/ChatMain';
 
 function App() {
 
 
   return (
     <Router>
-      <Routes>
-        <Route path ="/" element={<HomeMain />}></Route>
-      </Routes>
-    </Router>
-    
+    <div className="container">
+      <Header></Header>
+        <Routes>
+          <Route path="/" element={<ChatMain />} />
+        </Routes>
+    </div>
+  </Router>
   )
 }
 
