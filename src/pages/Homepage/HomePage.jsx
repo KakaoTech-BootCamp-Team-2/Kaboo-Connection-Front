@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../../components/Common/Layout";
 
-function HomeMain() {
+function HomePage() {
   return (
     <Layout>
       <h1>햄스터</h1>
@@ -12,4 +12,4 @@ function HomeMain() {
   );
 }
 
-export default HomeMain;
+export default HomePage;
