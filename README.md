@@ -25,3 +25,14 @@
 | ✅ Test        | `:white_check_mark` | 로직 및 코드 테스트              |
 | ♻️ Refactoring | `:recycle`          | 코드 리팩토링                    |
 | 📘 Docs        | `:blue_book`        | Feature 이외에 문서 생성 및 수정 |
+
+### font
+
+KakaoBold 또는 KakaoRegular
+
+### color
+
+기본 노랑 : #FFF496
+기본 찐브라운 : #715F00
+기본 연브라운 : #D3CBA1
+블랙 : #000

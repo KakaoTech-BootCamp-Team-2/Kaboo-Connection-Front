@@ -1,26 +1,12 @@
-import Layout from "./components/Common/Layout";
-import { useState } from "react";
-import "./App.css";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  useLocation,
-} from "react-router-dom";
-
-import Header from "./components/Common/Header";
-import HomePage from "./pages/Homepage/HomePage.jsx";
-import {VideoPage} from "./pages/VideoPage.jsx";
+import GlobalStyle from "./components/Common/GlobalStyle";
+import { PeopleListPage } from "./pages/PeopleListPage";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />}></Route>
-        <Route path="/video" element={<VideoPage />}></Route>
-      </Routes>
-    </Router>
+    <>
+      <GlobalStyle />
+      <PeopleListPage></PeopleListPage>
+    </>
   );
 }
 
