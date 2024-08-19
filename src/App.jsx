@@ -1,5 +1,5 @@
-import PeopleListPage from "./pages/PeopleListPage";
 import GlobalStyle from "./components/Common/GlobalStyle";
+import { PeopleListPage } from "./pages/PeopleListPage";
 
 function App() {
   return (

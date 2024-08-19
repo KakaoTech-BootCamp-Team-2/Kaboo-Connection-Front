@@ -3,7 +3,7 @@ import Layout from "../components/Common/Layout";
 import MiniLayout from "../components/Common/MiniLayout";
 import PeopleCard from "../components//PeopleListComponents/peopleCard";
 
-function PeopleListPage() {
+export const PeopleListPage = () => {
   const handleCardClick = () => {
     alert("상세페이지 ㄱㄱ"); // 상세페이지 고치기
   };
@@ -86,6 +86,4 @@ function PeopleListPage() {
       </MiniLayout>
     </Layout>
   );
-}
-
-export default PeopleListPage;
+};

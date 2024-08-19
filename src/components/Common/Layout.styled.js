@@ -14,7 +14,6 @@ export const LayoutContainer = styled.div`
 export const MainContent = styled.main`
   flex: 1;
   padding: 0px; /* 콘텐츠 패딩 */
-
   display: flex;
   justify-content: center;
   align-items: center;
