@@ -3,6 +3,8 @@ import prettier from "eslint-config-prettier";
 import prettierPlugin from "eslint-plugin-prettier";
 import globals from "globals";
 import react from "@vitejs/plugin-react";
+import reactHooks from "@eslint/js";
+import js from "@eslint/js";
 
 export default [
   {
