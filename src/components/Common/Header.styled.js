@@ -5,27 +5,34 @@ import { css } from "@emotion/react";
 export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  background-color: rgb(255, 255, 255, 0.5);
+  justify-content: center;
+  background-color: rgb(255, 255, 255, 0.5)
   color: white;
-  width: 100%;
-  height: 100px;
+  width: 100vw;
+  height: 150px;
   backdrop-filter: blur(10px);
+`;
+export const HeaderSubContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 90%;
+  height: 100%;
 `;
 
 export const Logo = styled.img`
-  height: 55px;
+  height: 100px;
 `;
 export const LogoWrapper = styled.div`
-  width: 200px;
+  width: 300px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 `;
 
 export const ServiceName = styled.h1`
-  font-size: 30px;
+  font-size: 35px;
   font-weight: bold;
   color: black;
   margin-left: 10px;
@@ -35,13 +42,14 @@ export const NavBar = styled.nav`
   display: flex;
   gap: 20px;
   margin-left: 40px;
+  width: 400px;
 `;
 
 export const NavItem = styled.a`
   color: #715f00;
   text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 17px;
+  font-weight: 600;
 
   &:hover {
     text-decoration: underline;
@@ -61,7 +69,6 @@ export const PeopleLogoWrapper = styled.button`
   align-items: center;
   width: 40px;
   height: 100%;
-  margin-left: 630px;
   border: none;
   background-color: transparent; /* 배경 색상 제거 */
 
