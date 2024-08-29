@@ -1,29 +1,39 @@
-# Base image with the latest Node.js version
-FROM node:latest as build
+# Base image with Node.js
+FROM node:18-alpine as build
 
 # Set working directory
 WORKDIR /app
 
 # Install dependencies
 COPY package.json package-lock.json ./
-RUN npm install
+RUN npm install --production
 
-# Copy the rest of the application files
+# Copy all files
 COPY . .
 
-# Build the application (if needed)
+# Build the application
 RUN npm run build
 
-# Use Nginx for production
+# Production image for Nginx
 FROM nginx:alpine
+
+# Copy built application
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Remove default Nginx configuration and add custom configuration
+# Install Node.js in Nginx container
+RUN apk add --no-cache nodejs npm
+
+# Copy Node.js server files
+COPY --from=build /app/server.cjs /app/server.cjs
+
+# Remove default nginx config
 RUN rm /etc/nginx/conf.d/default.conf
-COPY ./nginx.conf /etc/nginx/conf.d/
+
+# Copy custom nginx config
+COPY ./nginx.conf /etc/nginx/conf.d
 
 # Expose ports
 EXPOSE 80 3000
 
-# Start Nginx server
-CMD ["nginx", "-g", "daemon off;"]
+# Run both Nginx and Node.js server
+CMD ["sh", "-c", "node /app/server.cjs & nginx -g 'daemon off;'"]
