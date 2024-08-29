@@ -66,7 +66,7 @@ const RTCPage = () => {
   };
 
   useEffect(() => {
-    socketRef.current = io("ws://kaboo.site/socket.io/", {
+    socketRef.current = io("http://kaboo.site", {
       transports: ["websocket"],
     });
 
