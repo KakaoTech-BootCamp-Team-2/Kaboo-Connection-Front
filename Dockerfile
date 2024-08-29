@@ -21,7 +21,7 @@ FROM nginx:alpine
 WORKDIR /app
 
 COPY --from=build /app/dist /usr/share/nginx/html
-COPY --from=build /app/server.js /app
+COPY --from=build /app/server.cjs /app
 
 RUN rm /etc/nginx/conf.d/default.conf
 COPY ./nginx.conf /etc/nginx/conf.d
