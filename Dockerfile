@@ -6,13 +6,13 @@ WORKDIR /app
 
 # Install dependencies
 COPY package.json package-lock.json ./
-RUN npm install --production
+RUN npm install
 
 # Copy all files
 COPY . .
 
 # Build the application
-RUN npm run build
+RUN npx vite build  # 'npx vite build'로 빌드 실행
 
 # Production image for Nginx
 FROM nginx:alpine
