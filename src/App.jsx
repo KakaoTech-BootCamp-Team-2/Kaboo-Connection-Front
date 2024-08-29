@@ -11,6 +11,7 @@ import HomeMain from "./pages/homepages/HomeMain";
 import GlobalStyle from "./components/Common/GlobalStyle";
 import { PeopleListPage } from "./pages/PeopleListPage";
 import ChatPage from "./pages/chat/ChatPage";
+import RTCPage from "./pages/VideoPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomeMain />}></Route>
         <Route path="/chat" element={<ChatPage />}></Route>
+        <Route path="/video" element={<RTCPage />}></Route>
       </Routes>
     </Router>
   );
