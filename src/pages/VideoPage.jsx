@@ -66,7 +66,7 @@ const RTCPage = () => {
   };
 
   useEffect(() => {
-    socketRef.current = io("https://2242-122-45-139-174.ngrok-free.app", {
+    socketRef.current = io("http://localhost:3000", {
       transports: ["websocket"],
     });
 
