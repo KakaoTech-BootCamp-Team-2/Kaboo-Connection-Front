@@ -48,5 +48,5 @@ jobs:
             fi
 
             sudo docker pull ${{ env.DOCKER_IMAGE_NAME }}:latest
-            sudo docker run --name kaboo-connection-container -d -p 80:80 -e TZ=Asia/Seoul ${{ env.DOCKER_IMAGE_NAME }}:latest
+            sudo docker run --name kaboo-connection-container -d -p 80:80 -p 3000:3000 -e TZ=Asia/Seoul ${{ env.DOCKER_IMAGE_NAME }}:latest
             sudo docker image prune -f
