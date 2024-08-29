@@ -24,7 +24,7 @@ RUN apk add --no-cache nodejs npm
 COPY --from=build /app/dist /usr/share/nginx/html
 
 # Copy Node.js server files
-COPY --from=build /app/server.js /app/server.js
+COPY --from=build /app/server.cjs /app/server.cjs
 COPY --from=build /app/node_modules /app/node_modules
 
 # Remove default nginx config
@@ -37,4 +37,4 @@ COPY ./nginx.conf /etc/nginx/conf.d
 EXPOSE 80 3000
 
 # Run both Nginx and Node.js server
-CMD ["sh", "-c", "node /app/server.js & nginx -g 'daemon off;'"]
+CMD ["sh", "-c", "node /app/server.cjs & nginx -g 'daemon off;'"]
