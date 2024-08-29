@@ -66,7 +66,7 @@ const RTCPage = () => {
   };
 
   useEffect(() => {
-    socketRef.current = io("http://localhost:3000", {
+    socketRef.current = io("ws://kaboo.site/socket.io/", {
       transports: ["websocket"],
     });
 
