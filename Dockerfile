@@ -4,9 +4,9 @@ FROM node:18-alpine as build
 # Set working directory
 WORKDIR /app
 
-# Install dependencies including devDependencies
+# Install dependencies
 COPY package.json package-lock.json ./
-RUN npm install
+RUN npm install --production
 
 # Copy all files
 COPY . .
@@ -17,14 +17,15 @@ RUN npm run build
 # Production image for Nginx
 FROM nginx:alpine
 
-# Install Node.js in Nginx container
-RUN apk add --no-cache nodejs npm
-
 # Copy built application
 COPY --from=build /app/dist /usr/share/nginx/html
 
+# Install Node.js in Nginx container
+RUN apk add --no-cache nodejs npm
+
 # Copy Node.js server files
 COPY --from=build /app/server.cjs /app/server.cjs
+COPY --from=build /app/node_modules /app/node_modules  # Ensure node_modules is copied
 
 # Remove default nginx config
 RUN rm /etc/nginx/conf.d/default.conf
