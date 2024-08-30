@@ -17,6 +17,7 @@ const RTCPage = () => {
 
       if (myVideoRef.current) {
         myVideoRef.current.srcObject = stream;
+        myVideoRef.current.volume = 0; // 볼륨을 0으로 설정
       }
       stream.getTracks().forEach((track) => {
         if (pcRef.current) {
