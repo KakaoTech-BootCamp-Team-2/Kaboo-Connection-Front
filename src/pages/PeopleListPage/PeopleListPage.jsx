@@ -1,11 +1,13 @@
 import React from "react";
-import Layout from "../components/Common/Layout";
-import MiniLayout from "../components/Common/miniLayout.jsx";
-import PeopleCard from "../components//PeopleListComponents/peopleCard";
+import { useNavigate } from "react-router-dom";
+import Layout from "../../components/Common/Layout.jsx";
+import MiniLayout from "../../components/Common/miniLayout.jsx";
+import PeopleCard from "../../components/PeopleListComponents/PeopleCard/peopleCard.jsx";
 
 export const PeopleListPage = () => {
+  const navigate = useNavigate();
   const handleCardClick = () => {
-    alert("상세페이지 ㄱㄱ"); // 상세페이지 고치기
+    navigate('/details');
   };
 
   return (

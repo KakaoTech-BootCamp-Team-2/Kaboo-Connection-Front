@@ -33,16 +33,17 @@ export const ChatWrapper = styled.div`
   flex-direction: row;
   jusitfy-content: center;
   align-items: center;
-  border-top: 3px solid brown;
-  border-bottom: 3px solid brown;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black:
 `;
 
 export const LeftWrapper = styled.div`
   width: 50%;
   height: 100%;
   background-color: #fff9d9;
+    overflow-y: auto;
 `;
-
+export const ChatListButton = styled.div``;
 export const RightWrapper = styled.div`
   width: 50%;
   height: 100%;

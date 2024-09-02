@@ -9,7 +9,8 @@ import {
 import Header from "./components/Common/Header";
 import HomeMain from "./pages/homepages/HomeMain";
 import GlobalStyle from "./components/Common/GlobalStyle";
-import { PeopleListPage } from "./pages/PeopleListPage";
+import { PeopleListPage } from "./pages/PeopleListPage/PeopleListPage.jsx";
+import { PeopleDetailPage } from "./pages/PeopleDetailPage/PeopleDetailPage.jsx";
 import ChatPage from "./pages/chat/ChatPage";
 import RTCPage from "./pages/VideoPage";
 
@@ -20,6 +21,8 @@ function App() {
         <Route path="/" element={<HomeMain />}></Route>
         <Route path="/chat" element={<ChatPage />}></Route>
         <Route path="/video" element={<RTCPage />}></Route>
+        <Route path="/list" element={<PeopleListPage />} />
+        <Route path="/details" element={<PeopleDetailPage />} />
       </Routes>
     </Router>
   );
