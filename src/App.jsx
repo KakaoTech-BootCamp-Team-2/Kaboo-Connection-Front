@@ -13,7 +13,6 @@ import { PeopleListPage } from "./pages/PeopleListPage/PeopleListPage.jsx";
 import { PeopleDetailPage } from "./pages/PeopleDetailPage/PeopleDetailPage.jsx";
 import ChatPage from "./pages/chat/ChatPage";
 import RTCPage from "./pages/VideoPage";
-
 function App() {
   return (
     <Router>
