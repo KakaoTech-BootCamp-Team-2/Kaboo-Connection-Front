@@ -67,7 +67,7 @@ const RTCPage = () => {
   };
 
   useEffect(() => {
-    socketRef.current = io("https://kaboo.site", {
+    socketRef.current = io(import.meta.env.VITE_RTC_SERVER, {
       transports: ["websocket"],
     });
 
