@@ -4,7 +4,7 @@ import SockJS from "sockjs-client";
 import * as styles from "./styled/ChatRoom.styled";
 import Text from "../../components/Common/Text";
 import ChatMessage from "./ChatMessage.jsx";
-import { getChatMessages } from "../../api/ChatMessageCall.jsx";
+import { getChatMessages } from "../../api/ChatMessageCall.js";
 
 const ChatRoom = (props) => {
     const { uuid, name } = props;

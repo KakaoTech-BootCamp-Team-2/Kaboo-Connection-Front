@@ -1,13 +1,12 @@
 import axios from "axios";
 
-const apiClient = axios.create({
-    baseURL: 'http://localhost:5173/api',
-});
+import {instance} from "./instance";
+
 const currentUser = 'phj2';
 
 export const getChatMessages = async (roomUUID, page = 0, size = 10) => {
     try {
-        const response = await apiClient.get('/chat/messages', {
+        const response = await instance.get('/chat/messages', {
             params: {
                 roomUUID, // 채팅 방 ID
                 page,     // 페이지 번호

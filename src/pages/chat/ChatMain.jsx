@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 import * as styles from "./styled/ChatMain.styled";
 import ChatRoom from "./ChatRoom";
 import ChatList from "./ChatList";
-import {getChatList} from "../../api/ChatListCall.jsx";
+import {getChatList} from "../../api/ChatListCall.js";
 
 function ChatMain() {
   const [chatList, setChatList] = useState([])

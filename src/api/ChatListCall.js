@@ -1,12 +1,9 @@
 import axios from "axios";
-
-const apiClient = axios.create({
-    baseURL: 'http://localhost:5173/api',
-});
+import {instance} from "./instance.js";
 
 export const getChatList = async (username = 'pjh1') => {
     try {
-        const response = await apiClient.get('/chat/rooms', { // '/api' 제거
+        const response = await instance.get('/chat/rooms', { // '/api' 제거
             params: { username }
         });
         return response.data;
