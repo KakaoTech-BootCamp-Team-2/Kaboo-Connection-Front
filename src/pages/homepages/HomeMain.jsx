@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../../components/Common/Layout";
-import ChatMain from "../../pages/chat/ChatMain";
+
 function HomeMain() {
   return (
     <Layout>
