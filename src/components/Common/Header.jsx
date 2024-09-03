@@ -20,7 +20,7 @@ function Header() {
 
         <styles.NavBar>
           <styles.NavItem href="/">카부 게시판</styles.NavItem>
-          <styles.NavItem href="/">카부 프로젝트</styles.NavItem>
+          <styles.NavItem href="/login">카부 프로젝트</styles.NavItem>
           <styles.NavItem href="/">카부 편의</styles.NavItem>
           <styles.NavItem href="/chat">카부 커넥션</styles.NavItem>
         </styles.NavBar>
