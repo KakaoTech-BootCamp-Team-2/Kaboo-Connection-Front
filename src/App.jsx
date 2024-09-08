@@ -13,6 +13,7 @@ import { PeopleListPage } from "./pages/PeopleListPage/PeopleListPage.jsx";
 import { PeopleDetailPage } from "./pages/PeopleDetailPage/PeopleDetailPage.jsx";
 import ChatPage from "./pages/chat/ChatPage";
 import RTCPage from "./pages/VideoPage";
+import LoginPage from "./pages/LoginPage.jsx";
 function App() {
   return (
     <Router>
@@ -22,6 +23,7 @@ function App() {
         <Route path="/video" element={<RTCPage />}></Route>
         <Route path="/list" element={<PeopleListPage />} />
         <Route path="/details" element={<PeopleDetailPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </Router>
   );
