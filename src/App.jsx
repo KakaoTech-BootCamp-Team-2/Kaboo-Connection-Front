@@ -14,6 +14,8 @@ import { PeopleDetailPage } from "./pages/PeopleDetailPage/PeopleDetailPage.jsx"
 import ChatPage from "./pages/chat/ChatPage";
 import RTCPage from "./pages/VideoPage";
 import KakaoLogin from "./pages/join/KakaoLogin.jsx";
+import KakaoRedirect from "./pages/join/KakoRedirect.jsx";
+import JoinPage from "./pages/join/JoinPage.jsx";
 function App() {
   return (
     <Router>
@@ -24,6 +26,8 @@ function App() {
         <Route path="/list" element={<PeopleListPage />} />
         <Route path="/details" element={<PeopleDetailPage />} />
         <Route path="/login" element={<KakaoLogin />} />
+        <Route path="/auth/code/kakao" element={<KakaoRedirect />} />
+        <Route path= "/join" element = {<JoinPage />} />
       </Routes>
     </Router>
   );

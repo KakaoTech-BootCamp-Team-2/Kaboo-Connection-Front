@@ -18,10 +18,10 @@ function ChatMain() {
     const fetchChatList = async () => {
       try {
         const response = await getChatList(nowUser); // 사용자 이름을 동적으로 설정 가능
-        setChatList(response.data);
-        console.log('채팅방리스트', response);
+        setChatList(response);
+        console.log('채팅방리스트 불러오기 성공', response);
       } catch (error) {
-        console.error("Failed to fetch chat list", error);
+        console.error("채팅방리스트 불러오기 실패", error);
       }
     };
 
