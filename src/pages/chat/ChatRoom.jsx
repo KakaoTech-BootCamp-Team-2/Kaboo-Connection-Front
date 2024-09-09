@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
-import io from "socket.io-client";
+import * as Stomp from 'stompjs';
+import SockJS from "sockjs-client";
 import * as styles from "./styled/ChatRoom.styled";
 import Text from "../../components/Common/Text";
 import ChatMessage from "./ChatMessage.jsx";
 import { getChatMessages } from "../../api/ChatMessageCall.js";
 
 const ChatRoom = (props) => {
-  const { uuid, name } = props;
-  const [messages, setMessages] = useState([]);
-  const [message, setMessage] = useState("");
-  const [socket, setSocket] = useState(null);
+    const { uuid, name } = props;
+    const [messages, setMessages] = useState([]);
+    const [message, setMessage] = useState("");
+    const [stompClient, setStompClient] = useState(null);
 
-  const currentUsername = "pjh2"; // 현재 사용자를 pjh2로 가정
+    const currentUsername = '홍창기'; // 현재 사용자를 pjh2로 가정
 
   const roomId = props.uuid;
 
@@ -63,80 +64,90 @@ const ChatRoom = (props) => {
       ]);
     });
 
-    return () => {
-      if (newSocket) {
-        newSocket.disconnect();
-        console.log("WebSocket 연결 해제 되었습니다!");
-      }
+        return () => {
+            if (client) {
+                client.disconnect(() => {
+                    console.log("WebSocket 연결 해제 되었습니다!");
+                });
+            }
+        };
+    }, [uuid]); // uuid 변경될 때마다 재연결
+
+    const sendMessage = () => {
+        if (message.trim() === "" || !stompClient || !uuid) {
+            return;
+        }
+
+        const chatMessage = {
+            chatRoomUUID: uuid,
+            username: currentUsername, // 현재 접속한 사용자
+            nickname: "UserNickName",
+            message: message,
+        };
+
+        stompClient.send("/pub/messages", {}, JSON.stringify(chatMessage));
+
+        setMessages(prevMessages => {
+            if (Array.isArray(prevMessages)) {
+                return [
+                    ...prevMessages,
+                    {
+                        id: Date.now(), // 임시로 고유 ID를 부여
+                        user: chatMessage.username,
+                        text: chatMessage.message,
+                        time: new Date().toLocaleTimeString(),
+                        isCurrentUser: true, // 현재 사용자가 보낸 메시지이므로 true
+                    }
+                ];
+            } else {
+                return [{
+                    id: Date.now(),
+                    user: chatMessage.username,
+                    text: chatMessage.message,
+                    time: new Date().toLocaleTimeString(),
+                    isCurrentUser: true,
+                }];
+            }
+        });
+
+        setMessage("");
     };
-  }, [uuid]); // uuid 변경될 때마다 재연결
 
-  const sendMessage = () => {
-    if (message.trim() === "" || !socket || !uuid) {
-      return;
-    }
+    return (
+        <styles.TotalWrapper>
+            <styles.NameWrapper>
+                <Text
+                    value={props.name}
+                    fontFamily="KakaoBold"
+                    fontSize={45}
+                    color="#000"
+                >{name}</Text>
+            </styles.NameWrapper>
+            <styles.ChatRoomWrapper>
+                {Array.isArray(messages) && messages.map((each, id) => (
+                    <ChatMessage
+                        key={each.id}
+                        name={each.username}
+                        message={each.message}
+                        time={each.time}
+                        isCurrentUser={each.isCurrentUser}
+                    />
+                ))}
+            </styles.ChatRoomWrapper>
 
-    const chatMessage = {
-      chatRoomUUID: uuid,
-      username: currentUsername, // 현재 접속한 사용자
-      nickname: "UserNickName",
-      message: message,
-    };
-
-    socket.emit("message", chatMessage);
-
-    setMessages((prevMessages) => [
-      ...prevMessages,
-      {
-        id: Date.now(), // 임시로 고유 ID를 부여
-        user: chatMessage.username,
-        text: chatMessage.message,
-        time: new Date().toLocaleTimeString(),
-        isCurrentUser: true, // 현재 사용자가 보낸 메시지이므로 true
-      },
-    ]);
-
-    setMessage("");
-  };
-
-  return (
-    <styles.TotalWrapper>
-      <styles.NameWrapper>
-        <Text
-          value={props.name}
-          fontFamily="KakaoBold"
-          fontSize={45}
-          color="#000"
-        >
-          {name}
-        </Text>
-      </styles.NameWrapper>
-      <styles.ChatRoomWrapper>
-        {Array.isArray(messages) &&
-          messages.map((each, id) => (
-            <ChatMessage
-              key={each.id}
-              name={each.username}
-              message={each.message}
-              time={each.time}
-              isCurrentUser={each.isCurrentUser}
-            />
-          ))}
-      </styles.ChatRoomWrapper>
-
-      <styles.BottomWrapper>
-        <styles.InputWrapper>
-          <styles.Input
-            placeholder={"메세지를 입력하세요..."}
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-          ></styles.Input>
-        </styles.InputWrapper>
-        <styles.SendButton onClick={sendMessage}>{">"}</styles.SendButton>
-      </styles.BottomWrapper>
-    </styles.TotalWrapper>
-  );
+            <styles.BottomWrapper>
+                <styles.InputWrapper>
+                    <styles.Input
+                        placeholder={"메세지를 입력하세요..."}
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
+                    ></styles.Input>
+                </styles.InputWrapper>
+                <styles.SendButton onClick={sendMessage}>{'>'}</styles.SendButton>
+            </styles.BottomWrapper>
+        </styles.TotalWrapper>
+    );
 };
 
 export default ChatRoom;

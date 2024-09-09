@@ -15,7 +15,7 @@ export const getChatMessages = async (roomUUID, page = 0, size = 10) => {
         });
         return response.data;
     } catch (error) {
-        console.error("Error fetching chat messages!:", error.message);
+        console.error("채팅방 메세지 불러오기 실패:", error.message);
         throw error;
     }
 };

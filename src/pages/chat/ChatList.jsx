@@ -1,11 +1,13 @@
 import React from "react";
 import * as styles from "./styled/ChatList.styled";
 import smile from "../../assets/images/smiles.png";
+
 const ChatList = (props) => {
   const truncatedContent =
     props.content.length > 20
       ? `${props.content.slice(0, 15)}...`
       : props.content;
+    console.log(props);
 
   return (
     <styles.TotalWrapper>
