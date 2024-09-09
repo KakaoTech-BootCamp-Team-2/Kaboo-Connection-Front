@@ -9,17 +9,25 @@ export const TotalWrapper = styled.div`
   height: 130px;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid gray;
-  border-bottom: 1px solid gray;
+    border-bottom: 1px solid #d3cba1;
+    border-radius: 20px;
+    margin: 3px;
+    background: rgba(255, 255, 255, 0.5);;
+
+    &:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        border: 3px solid #d3cba1;
+    }
 `;
 
 export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  width: 60%;
-  height: 100%;
+  width: 70%;
+  height: 90%;
   align-items: center;
   justify-content: center;
+    margin:5px;
 `;
 
 export const ProfileWrapper = styled.div`
@@ -28,10 +36,12 @@ export const ProfileWrapper = styled.div`
   height: 85px;
   align-items: flex-start;
   justify-content: center;
+   
 `;
 export const Profile = styled.img`
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
+    border-radius: 50px;
 `;
 export const NameContentWrapper = styled.div`
   display: flex;
@@ -40,6 +50,7 @@ export const NameContentWrapper = styled.div`
   justify-content: flex-start;
   width: 60%;
   height: 60%;
+    margin-left: 10px;
 `;
 
 export const UserName = styled.div`
@@ -49,8 +60,9 @@ export const UserName = styled.div`
 `;
 
 export const TalkContent = styled.div`
-  font-size: ${(props) => props.fontSize || "17px"};
+  font-size: ${(props) => props.fontSize || "15spx"};
   margin-top: 5px;
+    width: 170px;
 `;
 
 export const TimeAlramWrapper = styled.div`
