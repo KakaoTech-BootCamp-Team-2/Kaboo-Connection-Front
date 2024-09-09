@@ -11,7 +11,7 @@ function Header() {
       <styles.HeaderSubContainer>
         <styles.LogoWrapper
           onClick={() => {
-            navigate("/");
+            navigate("/list");
           }}
         >
           <styles.Logo src={logo} alt="Logo" />
@@ -19,14 +19,17 @@ function Header() {
         </styles.LogoWrapper>
 
         <styles.NavBar>
-          <styles.NavItem href="/">카부 게시판</styles.NavItem>
-          <styles.NavItem href="/">카부 프로젝트</styles.NavItem>
-          <styles.NavItem href="/join">카부 편의</styles.NavItem>
+          <styles.NavItem href="/list">카부 게시판</styles.NavItem>
+          <styles.NavItem href="/list">카부 프로젝트</styles.NavItem>
+          <styles.NavItem href="/list">카부 편의</styles.NavItem>
           <styles.NavItem href="/chat">카부 커넥션</styles.NavItem>
         </styles.NavBar>
       </styles.HeaderSubContainer>
       <styles.PeopleLogoWrapper>
-        <styles.PeopleLogo src={peoplelogo} />
+        <styles.PeopleLogo src={peoplelogo}
+                           onClick={() => {
+                               navigate("/login");
+                           }}/>
       </styles.PeopleLogoWrapper>
     </styles.HeaderContainer>
   );
