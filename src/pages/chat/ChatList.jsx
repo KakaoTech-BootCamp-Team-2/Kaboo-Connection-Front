@@ -1,6 +1,6 @@
 import React from "react";
 import * as styles from "./styled/ChatList.styled";
-import profileimg from "../../assets/dummyImages/peopleList2.png";
+import profileimg from "../../assets/dummyImages/peoplelist2.png";
 
 const ChatList = (props) => {
   const truncatedContent =
