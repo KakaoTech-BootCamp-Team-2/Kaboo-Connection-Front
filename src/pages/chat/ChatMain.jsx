@@ -4,17 +4,15 @@ import * as styles from "./styled/ChatMain.styled";
 import ChatRoom from "./ChatRoom";
 import ChatList from "./ChatList";
 import {getChatList} from "../../api/ChatListCall.js";
+import dummyChatList from "./dummyChatData/dummyChatList";
+
 
 function ChatMain() {
   const [chatList, setChatList] = useState([])
   const [selectedChatRoom, setSelectedChatRoom] = useState(null);
   const nowUser = 'pjh2';
 
-  const sampleList = [
-    {chatRoomName:'홍창기', chatRoomContent:"홍창기 안타 안타 날려 홍창기 홍창기 안타 날려 버려라", chatRoomUUID:1},
-    {chatRoomName:'문보경', chatRoomContent:"동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세",chatRoomUUID:2},
-    {chatRoomName:'박동원', chatRoomContent:"시원하게 날려버려 무적엘지 박동원 무적엘지의 승리를 위해 날려버려라", chatRoomUUID:3},
-  ]
+
 
   useEffect(() => {
     const fetchChatList = async () => {
@@ -42,7 +40,7 @@ function ChatMain() {
       </styles.TitleWrapper>
       <styles.ChatWrapper>
         <styles.LeftWrapper>
-          {Array.isArray(chatList)&&chatList.map((eachChat, id) => (
+          {Array.isArray(dummyChatList)&&dummyChatList.map((eachChat, id) => (
               <styles.ChatListButton
                   key={eachChat.chatRoomUUID}
                   onClick={(e)=>{
@@ -51,8 +49,8 @@ function ChatMain() {
                 <ChatList
                     uuid={eachChat.chatRoomUUID}
                     name={eachChat.chatRoomName}
-                    content={eachChat.chatRoomName}
-                    time={"pm 10:30"}
+                    content={eachChat.chatContent}
+                    time={eachChat.time}
                     alramcount={3}></ChatList>
               </styles.ChatListButton>
 
