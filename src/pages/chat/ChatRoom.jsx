@@ -12,7 +12,7 @@ const ChatRoom = (props) => {
     const [message, setMessage] = useState("");
     const [stompClient, setStompClient] = useState(null);
 
-    const currentUsername = "pjh2"; // 현재 사용자를 pjh2로 가정
+    const currentUsername = '홍창기'; // 현재 사용자를 pjh2로 가정
 
   const roomId = props.uuid;
 
