@@ -64,12 +64,11 @@ export const ContentLineWrapper2 = styled.div`
     align-items: center;
     justify-content: center;
     margin: 5px;
-    background-color: beige;
 `;
 export const InputWrapper = styled.div`
     display: flex;
     align-items: center;
-    justify-content:center ;
+    justify-content:center;
     width: 70%;
     height: 50%;
     
@@ -80,7 +79,7 @@ export const Input = styled.input`
     height: 95%;
     border: 1.5px solid black;
     outline: none;
-
+    border-radius: 20px;
     font-size: 20px;
 `;
 
@@ -89,6 +88,6 @@ width: 25%;
     height: 100%;
     border-radius: 15px;
     background-color:#FFF7AE;
-    border: 2px solid black;
+    border: 1.5px solid black;
     margin: 5px;
 `
