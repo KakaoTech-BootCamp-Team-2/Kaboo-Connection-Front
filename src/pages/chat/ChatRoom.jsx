@@ -5,6 +5,7 @@ import * as styles from "./styled/ChatRoom.styled";
 import Text from "../../components/Common/Text";
 import ChatMessage from "./ChatMessage.jsx";
 import { getChatMessages } from "../../api/ChatMessageCall.js";
+import dummyChatMessages from "./dummyChatData/dummyChatMessages1";
 
 const ChatRoom = (props) => {
     const { uuid, name } = props;
@@ -124,9 +125,8 @@ const ChatRoom = (props) => {
                 >{name}</Text>
             </styles.NameWrapper>
             <styles.ChatRoomWrapper>
-                {Array.isArray(messages) && messages.map((each, id) => (
+                {Array.isArray(dummyChatMessages) && dummyChatMessages.map((each, id) => (
                     <ChatMessage
-                        key={each.id}
                         name={each.username}
                         message={each.message}
                         time={each.time}

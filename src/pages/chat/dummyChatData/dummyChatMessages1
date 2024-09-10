@@ -1,0 +1,29 @@
+const dummyChatMessages1 = [ {
+    "username" : "pjh2",
+    "nickname" : "justin",
+    "message" : "거기는 어때?",
+    "sendAt" : "2024-08-18T21:01:13.382868"
+  }, {
+    "username" : "pjh2",
+    "nickname" : "justin",
+    "message" : "엄청 더워...",
+    "sendAt" : "2024-08-18T21:01:13.382866"
+  }, {
+    "username" : "문보경",
+    "nickname" : "park",
+    "message" : "거기 날씨 어때?",
+    "sendAt" : "2024-08-18T21:01:13.382864"
+  }, {
+    "username" : "문보경",
+    "nickname" : "park",
+    "message" : "반가워",
+    "sendAt" : "2024-08-18T21:01:13.38286"
+  }, {
+    "username" : "pjh2",
+    "nickname" : "justin",
+    "message" : "안녕",
+    "sendAt" : "2024-08-18T21:01:13.382837"
+  } ]
+
+
+  export default dummyChatMessages1;

@@ -2,7 +2,9 @@
 import { instance } from "./instanceAuth"; // 설정된 Axios 인스턴스 임포트
 
 export async function postMemberData(data) {
-    const url = `/api/auth/member?name=${encodeURIComponent(data.koreanName)}`;
+    const userName = localStorage.getItem('kakao_access_tocken')
+    const url = `/api/auth/member?name=${encodeURIComponent(data.koreaName)}`;
+    console.log(url);
 
     try {
         const response = await instance.post(url, data); // Axios 인스턴스 사용

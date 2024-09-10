@@ -28,23 +28,24 @@ export const Title = styled.h1`
 export const ChatWrapper = styled.div`
   width: 90%;
   height: 90%;
-  background-color: white;
   display: flex;
   flex-direction: row;
   jusitfy-content: center;
   align-items: center;
-  border-top: 3px solid black;
-  border-bottom: 3px solid black:
+    border-radius: 20px;
+    border: 4px solid #d3cba1;
 `;
 
 export const LeftWrapper = styled.div`
   width: 50%;
   height: 100%;
-  background-color: #fff9d9;
+  background-color: transparent;
+    border-right: 4px solid #d3cba1;
     overflow-y: auto;
 `;
 export const ChatListButton = styled.div``;
 export const RightWrapper = styled.div`
   width: 50%;
   height: 100%;
+    border-radius:20px;
 `;

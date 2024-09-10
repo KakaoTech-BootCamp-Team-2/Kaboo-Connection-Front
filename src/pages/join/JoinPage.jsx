@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Layout from "../../components/Common/Layout";
 import * as styles from "../join/styled/JoinPage.styled.js";
 import Text from "@/components/Common/Text.jsx";
-import {postMemberData} from  '../../api/JoinInfoPost.js'
+import {postMemberData} from '../../api/postMemberData.js'
 import {ContentLineTitleWrapper} from "../join/styled/JoinPage.styled.js";
 
 function JoinPage(){
