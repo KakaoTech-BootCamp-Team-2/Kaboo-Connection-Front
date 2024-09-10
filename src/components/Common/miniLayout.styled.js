@@ -8,7 +8,7 @@ export const LayoutContainer = styled.div`
 export const HeaderBox = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 `;
 

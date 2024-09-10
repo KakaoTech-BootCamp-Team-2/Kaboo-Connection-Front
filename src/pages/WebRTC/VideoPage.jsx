@@ -126,11 +126,7 @@ const RTCPage = () => {
 
   return (
     <Layout>
-      <MiniLayout
-        text={"000님과의 실시간 커넥션"}
-        layerWidth={"70%"}
-        isButton={true}
-      >
+      <MiniLayout text={"실시간 커넥션"} layerWidth={"70%"} isButton={true}>
         <S.VideoLayout>
           <div
             style={{
@@ -140,13 +136,13 @@ const RTCPage = () => {
               flexDirection: "column",
             }}
           >
-            <h1>나의 화면</h1>
+            <h3>나의 화면</h3>
             <video
               ref={myVideoRef}
               autoPlay
               playsInline
               style={{
-                width: "400px",
+                width: "300px",
                 borderRadius: "20px",
                 transform: "rotateY(180deg)",
                 WebkitTransform: "rotateY(180deg)",
@@ -162,14 +158,14 @@ const RTCPage = () => {
               flexDirection: "column",
             }}
           >
-            <h1>000님의 화면</h1>
+            <h3>상대 화면</h3>
 
             <video
               ref={remoteVideoRef}
               autoPlay
               playsInline
               style={{
-                width: "400px",
+                width: "300px",
                 borderRadius: "20px",
                 transform: "rotateY(180deg)",
                 WebkitTransform: "rotateY(180deg)",
