@@ -7,8 +7,7 @@ function LoginPage() {
 
       // Redirection URL 로그 추가
       // const redirectUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${kakaoClientId}&redirect_uri=${redirectUri}&response_type=code`;
-      const redirectUrl =
-        "https://api.kaboo.site:8081/oauth2/authorization/kakao";
+      const redirectUrl = `https://api.kaboo.site:8081/oauth2/authorization/kakao?client_id=${import.meta.env.VITE_KAKAO_CLIENT_ID}&redirect_uri=${import.meta.env.VITE_KAKAO_REDIRECT_URI}&response_type=code`;
       console.log("Redirect URL:", redirectUrl);
 
       window.location.href = redirectUrl;
