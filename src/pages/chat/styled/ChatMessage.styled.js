@@ -8,7 +8,7 @@ export const lineTotalWrapper = styled.div`
   flex-direction: row;
   margin-top: 6px;
   margin-left: 15px;
-    background-color: yellow;
+
 `;
 export const lineTotalWrapper2 = styled.div`
   height: auto;

@@ -1,6 +1,6 @@
 import React from 'react';
 import * as chat from './styled/ChatMessage.styled.js';
-import profileimg from '../../assets/images/peoplelogo.png';
+import profileimg from '../../assets/dummyImages/peoplelist3.png';
 
 function ChatMessage({ name, message, time, isCurrentUser }) {
     return (
