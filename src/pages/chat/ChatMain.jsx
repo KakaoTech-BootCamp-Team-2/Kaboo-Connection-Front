@@ -10,8 +10,23 @@ import dummyChatList from "./dummyChatData/dummyChatList";
 function ChatMain() {
   const [chatList, setChatList] = useState([])
   const [selectedChatRoom, setSelectedChatRoom] = useState(null);
-  const nowUser = localStorage.getItem("username");
 
+  const getUsernameFromCookieOrLocalStorage = () => {
+    // 쿠키에서 username 값을 먼저 확인
+    const usernameFromCookie = document.cookie
+        .split("; ")
+        .find((row) => row.startsWith("username="))
+        ?.split("=")[1];
+
+    // 쿠키에 값이 없으면 localStorage에서 가져오기
+    if (usernameFromCookie) {
+      return usernameFromCookie;
+    } else {
+      return localStorage.getItem("username");
+    }
+  };
+  const nowUser = getUsernameFromCookieOrLocalStorage();
+  console.log('cookie-get:', nowUser);
 
 
   useEffect(() => {
