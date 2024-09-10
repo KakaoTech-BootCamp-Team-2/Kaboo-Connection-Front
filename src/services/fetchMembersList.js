@@ -1,6 +1,6 @@
 import {instance} from './../api/instance.js';
 
-const fetchMembers = async () => {
+const fetchMembersList = async () => {
     try {
         const cookies = document.cookie;
         console.log('Sending cookies:', cookies);
@@ -15,4 +15,4 @@ const fetchMembers = async () => {
     }
 };
 
-export default fetchMembers;
+export default fetchMembersList;

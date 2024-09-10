@@ -1,13 +1,20 @@
-// src/api/axios.js
-import axios from 'axios';
+import { instance } from './../api/instance.js';
 
-const memberInfo = axios.create({
-    baseURL: import.meta.env.VITE_BASE_URL, // 환경 변수를 사용
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    withCredentials: true, // 필요한 경우에만 설정
-    timeout: 10000 // 필요에 따라 타임아웃 설정
-});
+const fetchMemberByName = async (koreanName) => {
+    try {
+        const encodedName = encodeURIComponent(koreanName);
+        const response = await instance.get(`/api/auth/member?name=${encodedName}`);
+        console.log('Received response:', response);
 
-export default memberInfo;
+        if (response.data.success) {
+            return response.data.data;
+        } else {
+            throw new Error(response.data.message || "Failed to fetch member data");
+        }
+    } catch (error) {
+        console.error("Error fetching member data:", error.message);
+        throw error;
+    }
+};
+
+export default fetchMemberByName;

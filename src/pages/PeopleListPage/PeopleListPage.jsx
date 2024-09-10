@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Layout from "../../components/Common/Layout.jsx";
 import MiniLayout from "../../components/Common/miniLayout.jsx";
 import PeopleCard from "../../components/PeopleListComponents/PeopleCard/peopleCard.jsx";
-import fetchMembers from "../../services/memberList.js";
+import fetchMembersList from "../../services/fetchMembersList.js";
+import dummyImages1 from "../../assets/dummyImages/peopleList.jpeg"
 
 export const PeopleListPage = () => {
     const navigate = useNavigate();
@@ -15,8 +16,7 @@ export const PeopleListPage = () => {
         const displayMembers = async () => {
             setIsLoading(true);
             try {
-                // fetchMembers 함수를 호출하여 멤버 데이터를 가져옵니다.
-                const membersData = await fetchMembers();
+                const membersData = await fetchMembersList();
                 console.log('Fetched Members:', membersData.data); // 데이터 구조를 확인하기 위해 콘솔에 출력
                 if (membersData && membersData.data && membersData.data.memberList) {
                     setMembers(membersData.data.memberList);
@@ -34,7 +34,7 @@ export const PeopleListPage = () => {
 
         displayMembers();
     }, []);
-; // 의존성 배열을 비워 컴포넌트 마운트 시 한 번만 호출되도록 설정
+;
 
     const handleCardClick = () => {
         navigate('/details');
@@ -49,7 +49,7 @@ export const PeopleListPage = () => {
                 {members.map((member, index) => (
                     <PeopleCard
                         key={index}
-                        image={`src/assets/dummyImages/peopleList${index % 2 + 1}.png`} // 임시 이미지, 인덱스에 따라 번갈아가며 적용
+                        image={dummyImages1} // 임시 이미지
                         name={`${member.englishName} (${member.koreaName})`}
                         affiliation={`카카오 부트캠프 1기 : ${member.course}`}
                         onClick={handleCardClick}
