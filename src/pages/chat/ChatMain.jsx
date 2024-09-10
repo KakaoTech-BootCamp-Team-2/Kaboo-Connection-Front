@@ -10,7 +10,7 @@ import dummyChatList from "./dummyChatData/dummyChatList";
 function ChatMain() {
   const [chatList, setChatList] = useState([])
   const [selectedChatRoom, setSelectedChatRoom] = useState(null);
-  const nowUser = 'user1';
+  const nowUser = localStorage.getItem("username");
 
 
 

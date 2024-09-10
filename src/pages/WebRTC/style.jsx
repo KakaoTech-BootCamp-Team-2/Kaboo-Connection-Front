@@ -10,13 +10,13 @@ export const VideoLayout = ({ children }) => {
   return (
     <div
       css={css`
-        height: 50vh;
-        width: 100%;
+        width: 50%;
         border-radius: 20px;
         display: flex;
         justify-content: center;
-        gap: 10rem;
+        gap: 2rem;
         align-items: center;
+        flex-direction: column;
       `}
     >
       {children}
