@@ -132,7 +132,15 @@ const RTCPage = () => {
         isButton={true}
       >
         <S.VideoLayout>
-          <S.VideoBox>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+            }}
+          >
+            <h1>나의 화면</h1>
             <video
               ref={myVideoRef}
               autoPlay
@@ -145,8 +153,17 @@ const RTCPage = () => {
                 MozTransform: "rotateY(180deg)",
               }}
             />
-          </S.VideoBox>
-          <S.VideoBox>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+            }}
+          >
+            <h1>000님의 화면</h1>
+
             <video
               ref={remoteVideoRef}
               autoPlay
@@ -159,7 +176,7 @@ const RTCPage = () => {
                 MozTransform: "rotateY(180deg)",
               }}
             />
-          </S.VideoBox>
+          </div>
         </S.VideoLayout>
       </MiniLayout>
     </Layout>
