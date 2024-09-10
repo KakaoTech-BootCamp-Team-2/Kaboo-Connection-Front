@@ -32,6 +32,8 @@ function JoinPage(){
             course,
         };
         console.log(data);
+        localStorage.setItem("koreaName", koreaName);
+
 
         try {
             const result = await postMemberData(data); // API 유틸리티 파일의 함수 호출
@@ -115,7 +117,7 @@ function JoinPage(){
                                 ></Text>
                             </styles.ContentLineTitleWrapper>
 
-                            <styles.InputWrapper>
+                            <styles.InputWrapper2>
                                 <styles.TeamButton onClick={() => setCourse("FULLSTACK")}>
                                     <Text
                                         value={"풀스택"}
@@ -140,7 +142,7 @@ function JoinPage(){
                                         color="#000"
                                     ></Text>
                                 </styles.TeamButton>
-                            </styles.InputWrapper>
+                            </styles.InputWrapper2>
 
                         </styles.ContentLineWrapper>
                         <styles.ContentLineWrapper>
