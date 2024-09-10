@@ -1,11 +1,5 @@
 import React from "react";
 import Layout from "../../components/Common/Layout";
-<<<<<<< HEAD
-import ChatMain from "../../pages/chat/ChatMain";
-import { instance } from "../../api/instance";
-=======
-
->>>>>>> upstream/dev
 function HomePage() {
   return (
     <Layout>

@@ -1,4 +1,6 @@
 import React, { useEffect, useRef } from "react";
+import Layout from "../../components/Common/Layout";
+import * as S from "./style";
 import { io } from "socket.io-client";
 
 const RTCPage = () => {
@@ -111,16 +113,29 @@ const RTCPage = () => {
   }, []);
 
   return (
-    <div>
-      <h1>WebRTC Video Call</h1>
-      <video ref={myVideoRef} autoPlay playsInline style={{ width: "300px" }} />
-      <video
-        ref={remoteVideoRef}
-        autoPlay
-        playsInline
-        style={{ width: "300px" }}
-      />
-    </div>
+    <Layout>
+      <h1>실시간 화상 채팅</h1>
+
+      <S.StyledDiv>
+        <video
+          ref={myVideoRef}
+          autoPlay
+          playsInline
+          style={{ width: "300px", borderRadius: "20px" }}
+        />
+        <video
+          ref={remoteVideoRef}
+          autoPlay
+          playsInline
+          style={{
+            width: "300px",
+            transform: "rotateY(180deg)",
+            WebkitTransform: "rotateY(180deg)",
+            MozTransform: "rotateY(180deg)",
+          }}
+        />
+      </S.StyledDiv>
+    </Layout>
   );
 };
 
