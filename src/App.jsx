@@ -1,24 +1,29 @@
-import { useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link,
-  useLocation,
 } from "react-router-dom";
-import Header from "./components/Common/Header";
-import HomeMain from "./pages/homepages/HomeMain";
-import GlobalStyle from "./components/Common/GlobalStyle";
 import { PeopleListPage } from "./pages/PeopleListPage/PeopleListPage.jsx";
 import { PeopleDetailPage } from "./pages/PeopleDetailPage/PeopleDetailPage.jsx";
 import ChatPage from "./pages/chat/ChatPage";
-import KakaoLogin from "./pages/join/KakaoLogin.jsx";
 import KakaoRedirect from "./pages/join/KakoRedirect.jsx";
 import JoinPage from "./pages/join/JoinPage.jsx";
 import RTCPage from "./pages/WebRTC/VideoPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { PeopleListPage } from './pages/PeopleListPage/PeopleListPage.jsx';
+import { PeopleDetailPage } from './pages/PeopleDetailPage/PeopleDetailPage.jsx';
+import ChatPage from './pages/chat/ChatPage';
+import RTCPage from './pages/VideoPage';
+import LoginPage from "./pages/kakaologin/LoginPage.jsx";
+// QueryClient 인스턴스 생성
+const queryClient = new QueryClient();
+
 function App() {
   return (
+      <QueryClientProvider client={queryClient}>
     <Router>
       <Routes>
         <Route path="/" element={<PeopleListPage />}></Route>
@@ -31,6 +36,7 @@ function App() {
         <Route path="/join" element={<JoinPage />} />
       </Routes>
     </Router>
+       </QueryClientProvider>
   );
 }
 
