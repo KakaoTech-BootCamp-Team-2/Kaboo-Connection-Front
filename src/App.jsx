@@ -16,6 +16,7 @@ import KakaoLogin from "./pages/join/KakaoLogin.jsx";
 import KakaoRedirect from "./pages/join/KakoRedirect.jsx";
 import JoinPage from "./pages/join/JoinPage.jsx";
 import RTCPage from "./pages/WebRTC/VideoPage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
 function App() {
   return (
     <Router>
@@ -25,7 +26,7 @@ function App() {
         <Route path="/video" element={<RTCPage />}></Route>
         <Route path="/list" element={<PeopleListPage />} />
         <Route path="/details" element={<PeopleDetailPage />} />
-        <Route path="/login" element={<KakaoLogin />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/auth/code/kakao" element={<KakaoRedirect />} />
         <Route path="/join" element={<JoinPage />} />
       </Routes>
