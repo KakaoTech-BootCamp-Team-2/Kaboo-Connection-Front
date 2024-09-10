@@ -8,29 +8,34 @@ function Header() {
   const navigate = useNavigate();
   return (
     <styles.HeaderContainer>
-      <styles.HeaderSubContainer>
-        <styles.LogoWrapper
-          onClick={() => {
-            navigate("/");
+      <styles.LogoWrapper
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        <styles.Logo src={logo} alt="Logo" />
+        <styles.ServiceName
+          style={{
+            cursor: "pointer",
           }}
         >
-          <styles.Logo src={logo} alt="Logo" />
-          <styles.ServiceName>카부커넥션</styles.ServiceName>
-        </styles.LogoWrapper>
+          카부커넥션
+        </styles.ServiceName>
+      </styles.LogoWrapper>
 
-        <styles.NavBar>
-          <styles.NavItem href="/list">카부 게시판</styles.NavItem>
-          <styles.NavItem href="/list">카부 프로젝트</styles.NavItem>
-          <styles.NavItem href="/list">카부 편의</styles.NavItem>
-          <styles.NavItem href="/chat">카부 커넥션</styles.NavItem>
-        </styles.NavBar>
-      </styles.HeaderSubContainer>
-      <styles.PeopleLogoWrapper>
+      <styles.NavBar>
+        <styles.NavItem href="/list">카부인 목록</styles.NavItem>
+        <styles.NavItem href="/chat">카부 채팅</styles.NavItem>
+        <styles.NavItem href="/video/1">카부 라이브1</styles.NavItem>
+        <styles.NavItem href="/video/2">카부 라이브2</styles.NavItem>
+        <styles.NavItem href="/video/3">카부 라이브3</styles.NavItem>
         <styles.PeopleLogo
-            onClick={() => {
+          onClick={() => {
             navigate("/login");
-        }} src={peoplelogo} />
-      </styles.PeopleLogoWrapper>
+          }}
+          src={peoplelogo}
+        />
+      </styles.NavBar>
     </styles.HeaderContainer>
   );
 }
