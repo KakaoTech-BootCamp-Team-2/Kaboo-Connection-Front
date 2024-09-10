@@ -1,15 +1,17 @@
 import React, { useEffect, useRef } from "react";
+import { useParams } from "react-router-dom";
 import Layout from "../../components/Common/Layout";
 import * as S from "./style";
 import { io } from "socket.io-client";
 import MiniLayout from "../../components/Common/miniLayout";
 
 const RTCPage = () => {
+  const params = useParams();
   const socketRef = useRef(null);
   const myVideoRef = useRef(null);
   const remoteVideoRef = useRef(null);
   const pcRef = useRef(null);
-  const roomName = "testRoom"; // You can dynamically generate or pass this
+  const roomName = params.roomName;
 
   const getMedia = async () => {
     try {
@@ -20,8 +22,9 @@ const RTCPage = () => {
 
       if (myVideoRef.current) {
         myVideoRef.current.srcObject = stream;
-        myVideoRef.current.volume = 0; // 볼륨을 0으로 설정
+        myVideoRef.current.volume = 0;
       }
+
       stream.getTracks().forEach((track) => {
         if (pcRef.current) {
           pcRef.current.addTrack(track, stream);
@@ -59,7 +62,9 @@ const RTCPage = () => {
 
   const createAnswer = async (offer) => {
     try {
-      await pcRef.current.setRemoteDescription(offer);
+      await pcRef.current.setRemoteDescription(
+        new RTCSessionDescription(offer)
+      );
       const answer = await pcRef.current.createAnswer();
       await pcRef.current.setLocalDescription(answer);
       console.log("Created answer: ", answer);
@@ -94,24 +99,30 @@ const RTCPage = () => {
     socketRef.current.on("offer", async (offer) => {
       console.log("Received offer: ", offer);
       await getMedia();
-      createAnswer(offer);
+      await createAnswer(offer); // Ensure createAnswer is awaited
     });
 
-    socketRef.current.on("answer", (answer) => {
+    socketRef.current.on("answer", async (answer) => {
       console.log("Received answer: ", answer);
-      pcRef.current.setRemoteDescription(answer);
+      await pcRef.current.setRemoteDescription(
+        new RTCSessionDescription(answer)
+      );
     });
 
     socketRef.current.on("candidate", async (candidate) => {
       console.log("Received candidate: ", candidate);
-      await pcRef.current.addIceCandidate(candidate);
+      try {
+        await pcRef.current.addIceCandidate(new RTCIceCandidate(candidate));
+      } catch (e) {
+        console.error("Error adding ICE candidate: ", e);
+      }
     });
 
     return () => {
       if (socketRef.current) socketRef.current.disconnect();
       if (pcRef.current) pcRef.current.close();
     };
-  }, []);
+  }, [roomName]); // Add roomName to the dependency array to ensure updates
 
   return (
     <Layout>
