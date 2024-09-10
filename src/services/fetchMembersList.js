@@ -5,7 +5,7 @@ const fetchMembersList = async () => {
         const cookies = document.cookie;
         console.log('Sending cookies:', cookies);
 
-        const response = await instance.get('api/auth/member/all', {
+        const response = await instance.get('/api/auth/member/all', {
         });
         console.log('들어오는 응답',response);
         return response;
