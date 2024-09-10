@@ -125,7 +125,7 @@ const RTCPage = () => {
   }, [roomName]); // Add roomName to the dependency array to ensure updates
 
   return (
-    <Layout>
+    <Layout noneHeader={true}>
       <MiniLayout text={"실시간 커넥션"} layerWidth={"70%"} isButton={true}>
         <S.VideoLayout>
           <div
