@@ -10,16 +10,16 @@ import dummyChatList from "./dummyChatData/dummyChatList";
 function ChatMain() {
   const [chatList, setChatList] = useState([])
   const [selectedChatRoom, setSelectedChatRoom] = useState(null);
-  const nowUser = 'pjh2';
+  const nowUser = 'user1';
 
 
 
   useEffect(() => {
     const fetchChatList = async () => {
       try {
-        const response = await getChatList(nowUser); // 사용자 이름을 동적으로 설정 가능
-        setChatList(response);
-        console.log('채팅방리스트 불러오기 성공', response);
+        const response = await getChatList(nowUser);
+        setChatList(response.data.data);
+        console.log('채팅방리스트 불러오기 성공', response.data.data);
       } catch (error) {
         console.error("채팅방리스트 불러오기 실패", error);
       }
@@ -40,7 +40,7 @@ function ChatMain() {
       </styles.TitleWrapper>
       <styles.ChatWrapper>
         <styles.LeftWrapper>
-          {Array.isArray(dummyChatList)&&dummyChatList.map((eachChat, id) => (
+          {Array.isArray(chatList)&&chatList.map((eachChat, id) => (
               <styles.ChatListButton
                   key={eachChat.chatRoomUUID}
                   onClick={(e)=>{
@@ -49,8 +49,8 @@ function ChatMain() {
                 <ChatList
                     uuid={eachChat.chatRoomUUID}
                     name={eachChat.chatRoomName}
-                    content={eachChat.chatContent}
-                    time={eachChat.time}
+                    content={"카부카부"}
+                    time={"2020.08.09"}
                     alramcount={3}></ChatList>
               </styles.ChatListButton>
 

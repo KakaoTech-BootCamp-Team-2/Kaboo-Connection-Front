@@ -13,7 +13,7 @@ export const getChatMessages = async (roomUUID, page = 0, size = 10) => {
                 size      // 페이지 당 메시지 수
             }
         });
-        return response.data;
+        return response;
     } catch (error) {
         console.error("채팅방 메세지 불러오기 실패:", error.message);
         throw error;

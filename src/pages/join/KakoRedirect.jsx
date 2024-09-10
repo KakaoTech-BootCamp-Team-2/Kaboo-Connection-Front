@@ -38,7 +38,13 @@ const KakaoRedirect = () => {
                 }
             );
             console.log("Access Token:", response.data.access_token);
-            // 받은 토큰을 localStorage 또는 백엔드로 전달
+            // 쿠키에 Access Token 저장
+            document.cookie = `kakao_access_token=${response.data.access_token}`;
+
+            await axios.post('/api.kaboo.site:8081', {
+                access_token: response.data.access_token
+            });
+
             localStorage.setItem("kakao_access_token", response.data.access_token);
             navigate("/join")
 
