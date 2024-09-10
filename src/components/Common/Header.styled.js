@@ -6,10 +6,11 @@ export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(255, 255, 255, 0.5)
+  /* background-color: rgb(255, 255, 255, 0.5); */
   color: white;
-  width: 100vw;
+  width: 80%;
   height: 150px;
+  padding: 0 4rem;
   backdrop-filter: blur(10px);
 `;
 export const HeaderSubContainer = styled.div`
@@ -22,13 +23,13 @@ export const HeaderSubContainer = styled.div`
 
 export const Logo = styled.img`
   height: 100px;
+  cursor: pointer;
 `;
 export const LogoWrapper = styled.div`
   width: 300px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
 `;
 
 export const ServiceName = styled.h1`
@@ -41,16 +42,14 @@ export const ServiceName = styled.h1`
 export const NavBar = styled.nav`
   display: flex;
   gap: 20px;
-  margin-left: 40px;
-  width: 400px;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const NavItem = styled.a`
   color: #715f00;
   text-decoration: none;
-  font-size: 17px;
   font-weight: 600;
-
   &:hover {
     text-decoration: underline;
     color: black;
@@ -91,7 +90,6 @@ export const PeopleLogoWrapper = styled.button`
 `;
 
 export const PeopleLogo = styled.img`
-  width: 33px;
-  height: 33px;
-  margin-top: 10px;
+  width: 24px;
+  cursor: pointer;
 `;

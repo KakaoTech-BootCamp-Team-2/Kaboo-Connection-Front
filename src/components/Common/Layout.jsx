@@ -4,13 +4,13 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { LayoutContainer, MainContent } from "./Layout.styled";
 
-const Layout = ({ children, noneHeader }) => {
+const Layout = ({ children, noneHeader, isCenter }) => {
   return (
     <>
       <Background></Background>
       <LayoutContainer>
         {!noneHeader && <Header />}
-        <MainContent>{children}</MainContent>
+        <MainContent $isCenter={isCenter}>{children}</MainContent>
         <Footer />
       </LayoutContainer>
     </>
