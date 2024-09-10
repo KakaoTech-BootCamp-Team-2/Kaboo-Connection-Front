@@ -4,12 +4,12 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { LayoutContainer, MainContent } from "./Layout.styled";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, noneHeader }) => {
   return (
     <>
       <Background></Background>
       <LayoutContainer>
-        <Header />
+        {!noneHeader && <Header />}
         <MainContent>{children}</MainContent>
         <Footer />
       </LayoutContainer>
