@@ -17,12 +17,12 @@ export const PeopleListPage = () => {
             setIsLoading(true);
             try {
                 const membersData = await fetchMembersList();
-                console.log('Fetched Members:', membersData.data); // 데이터 구조를 확인하기 위해 콘솔에 출력
+                console.log('Fetched Members:', membersData.data);
                 if (membersData && membersData.data && membersData.data.memberList) {
                     setMembers(membersData.data.memberList);
                 } else {
                     console.error('Invalid data structure:', membersData);
-                    setMembers([]); // 데이터 구조가 올바르지 않을 경우 빈 배열 설정
+                    setMembers([]);
                 }
                 setIsLoading(false);
             } catch (error) {
@@ -32,29 +32,92 @@ export const PeopleListPage = () => {
             }
         };
 
-        displayMembers();
+        //displayMembers();
     }, []);
-;
+    ;
 
     const handleCardClick = () => {
         navigate('/details');
     };
 
-    if (isLoading) return <div>로딩 중...</div>;
-    if (error) return <div>에러 발생: {error.message}</div>;
+    // if (isLoading) return <div>로딩 중...</div>;
+    // if (error) return <div>에러 발생: {error.message}</div>;
 
     return (
         <Layout>
             <MiniLayout text="카부인 전당" layerWidth="80%">
-                {members.map((member, index) => (
-                    <PeopleCard
-                        key={index}
-                        image={dummyImages1} // 임시 이미지
-                        name={`${member.englishName} (${member.koreaName})`}
-                        affiliation={`카카오 부트캠프 1기 : ${member.course}`}
-                        onClick={handleCardClick}
-                    />
-                ))}
+                <PeopleCard
+                    image="src/assets/dummyImages/peopleList.jpeg" // 더미이미지
+                    name="celina.jung (정은체)" // 임시 하드코딩
+                    affiliation="카카오 부트캠프 1기 : AI"
+                    onClick={handleCardClick}
+                />
+                <PeopleCard
+                    image="src/assets/dummyImages/peopleList2.png" // 더미이미지
+                    name="celina.jung (정은체)" // 임시 하드코딩
+                    affiliation="카카오 부트캠프 1기 : AI"
+                    onClick={handleCardClick}
+                />
+                <PeopleCard
+                    image="src/assets/dummyImages/peopleList.jpeg" // 더미이미지
+                    name="celina.jung (정은체)" // 임시 하드코딩
+                    affiliation="카카오 부트캠프 1기 : AI"
+                    onClick={handleCardClick}
+                />
+                <PeopleCard
+                    image="src/assets/dummyImages/peopleList2.png" // 더미이미지
+                    name="celina.jung (정은체)" // 임시 하드코딩
+                    affiliation="카카오 부트캠프 1기 : AI"
+                    onClick={handleCardClick}
+                />
+                <PeopleCard
+                    image="src/assets/dummyImages/peopleList.jpeg" // 더미이미지
+                    name="celina.jung (정은체)" // 임시 하드코딩
+                    affiliation="카카오 부트캠프 1기 : AI"
+                    onClick={handleCardClick}
+                />
+                <PeopleCard
+                    image="src/assets/dummyImages/peopleList2.png" // 더미이미지
+                    name="celina.jung (정은체)" // 임시 하드코딩
+                    affiliation="카카오 부트캠프 1기 : AI"
+                    onClick={handleCardClick}
+                />
+                <PeopleCard
+                    image="src/assets/dummyImages/peopleList.jpeg" // 더미이미지
+                    name="celina.jung (정은체)" // 임시 하드코딩
+                    affiliation="카카오 부트캠프 1기 : AI"
+                    onClick={handleCardClick}
+                />
+                <PeopleCard
+                    image="src/assets/dummyImages/peopleList2.png" // 더미이미지
+                    name="celina.jung (정은체)" // 임시 하드코딩
+                    affiliation="카카오 부트캠프 1기 : AI"
+                    onClick={handleCardClick}
+                />
+                <PeopleCard
+                    image="src/assets/dummyImages/peopleList.jpeg" // 더미이미지
+                    name="celina.jung (정은체)" // 임시 하드코딩
+                    affiliation="카카오 부트캠프 1기 : AI"
+                    onClick={handleCardClick}
+                />
+                <PeopleCard
+                    image="src/assets/dummyImages/peopleList2.png" // 더미이미지
+                    name="celina.jung (정은체)" // 임시 하드코딩
+                    affiliation="카카오 부트캠프 1기 : AI"
+                    onClick={handleCardClick}
+                />
+                <PeopleCard
+                    image="src/assets/dummyImages/peopleList.jpeg" // 더미이미지
+                    name="celina.jung (정은체)" // 임시 하드코딩
+                    affiliation="카카오 부트캠프 1기 : AI"
+                    onClick={handleCardClick}
+                />
+                <PeopleCard
+                    image="src/assets/dummyImages/peopleList2.png" // 더미이미지
+                    name="celina.jung (정은체)" // 임시 하드코딩
+                    affiliation="카카오 부트캠프 1기 : AI"
+                    onClick={handleCardClick}
+                />
             </MiniLayout>
         </Layout>
     );
