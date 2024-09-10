@@ -71,20 +71,31 @@ export const InputWrapper = styled.div`
     justify-content:center;
     width: 70%;
     height: 50%;
+    border-radius: 20px;
+    border: 1.5px solid black;
+    
+`;
+export const InputWrapper2 = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    width: 70%;
+    height: 50%;
+ 
     
 `;
 
 export const Input = styled.input`
     width: 80%;
-    height: 95%;
-    border: 1.5px solid black;
+    height: 90%;
     outline: none;
-    border-radius: 20px;
+    border: none;
     font-size: 20px;
+    background-color: transparent;
 `;
 
 export const TeamButton = styled.button`
-width: 25%;
+width: 100px;
     height: 100%;
     border-radius: 15px;
     background-color:#FFF7AE;

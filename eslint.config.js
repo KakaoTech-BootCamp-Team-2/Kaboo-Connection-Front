@@ -1,10 +1,8 @@
 import reactRefresh from "eslint-plugin-react-refresh";
-import prettier from "eslint-config-prettier";
 import prettierPlugin from "eslint-plugin-prettier";
 import globals from "globals";
-import react from "@vitejs/plugin-react";
-import reactHooks from "@eslint/js";
-import js from "@eslint/js";
+import reactPlugin from "eslint-plugin-react";
+import reactHooksPlugin from "eslint-plugin-react-hooks";
 
 export default [
   {
@@ -21,8 +19,8 @@ export default [
     },
     settings: { react: { version: "18.3" } },
     plugins: {
-      react,
-      "react-hooks": reactHooks,
+      react: reactPlugin,
+      "react-hooks": reactHooksPlugin,
       "react-refresh": reactRefresh,
       prettier: prettierPlugin,
     },
@@ -32,10 +30,6 @@ export default [
       "plugin:prettier/recommended",
     ],
     rules: {
-      ...js.configs.recommended.rules,
-      ...react.configs.recommended.rules,
-      ...react.configs["jsx-runtime"].rules,
-      ...reactHooks.configs.recommended.rules,
       "react/jsx-no-target-blank": "off",
       "react-refresh/only-export-components": [
         "warn",

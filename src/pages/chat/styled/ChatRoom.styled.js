@@ -9,6 +9,7 @@ export const TotalWrapper = styled.div`
     height: 100%;
     align-items: center;
     justify-content: flex-start;
+   
 `;
 
 export const NameWrapper = styled.div`
@@ -18,12 +19,15 @@ export const NameWrapper = styled.div`
     background-color: #f8f7e1;
     align-items: center;
     justify-content: center;
+    border-radius: 20px;
 `;
 
 export const ChatRoomWrapper = styled.div`
     width: 100%;
     height: 80%;
-    background-color: white;`;
+    background: rgba(255, 255, 255, 0.5);
+    overflow-y:scroll;
+`;
 
 export const BottomWrapper = styled.div`
     display: flex;
@@ -31,7 +35,8 @@ export const BottomWrapper = styled.div`
     justify-content: center;
     width: 100%;
     height: 10%;
-    background-color:#f8f7e1 `;
+    border-radius: 20px;
+    background-color:#f8f7e1;`;
 
 export const InputWrapper = styled.div`
     display: flex;
@@ -40,7 +45,7 @@ export const InputWrapper = styled.div`
     width: 85%;
     height: 90%;
     border-radius: 40px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.8);
 `;
 
 export const Input = styled.input`
@@ -53,12 +58,13 @@ export const Input = styled.input`
 `;
 
 export const SendButton = styled.button`
-    width: 65px;
-    height: 65px;
-    background-color: yellow;
+    width: 55px;
+    height: 55px;
+    background-color: #f9e000;
     border-radius: 30px;
     border: none;
     margin: 5px;
+    font-size: 20px;
     
     &:active{
         background-color: navajowhite;

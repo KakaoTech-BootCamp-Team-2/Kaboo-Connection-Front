@@ -12,10 +12,9 @@ function KakaoLogin() {
 
     useEffect(() => {
         const accessToken = localStorage.getItem("kakao_access_token");
-        console.log(CLIENT_ID, REDIRECT_URL);
+        console.log(CLIENT_ID, REDIRECT_URL, accessToken);
         if (accessToken) {
             alert("이미 로그인 되어있습니다!");
-            navigate("/join");
         }
         if (!window.Kakao) {
             const script = document.createElement("script");
