@@ -1,15 +1,17 @@
 import React, { useEffect, useRef } from "react";
+import { useParams } from "react-router-dom";
 import Layout from "../../components/Common/Layout";
 import * as S from "./style";
 import { io } from "socket.io-client";
 import MiniLayout from "../../components/Common/miniLayout";
 
 const RTCPage = () => {
+  const params = useParams();
   const socketRef = useRef(null);
   const myVideoRef = useRef(null);
   const remoteVideoRef = useRef(null);
   const pcRef = useRef(null);
-  const roomName = "testRoom"; // You can dynamically generate or pass this
+  const roomName = params.roomName; // You can dynamically generate or pass this
 
   const getMedia = async () => {
     try {

@@ -23,7 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<PeopleListPage />}></Route>
         <Route path="/chat" element={<ChatPage />}></Route>
-        <Route path="/video" element={<RTCPage />}></Route>
+        <Route path="/video/:roomName" element={<RTCPage />}></Route>
         <Route path="/list" element={<PeopleListPage />} />
         <Route path="/details" element={<PeopleDetailPage />} />
         <Route path="/login" element={<LoginPage />} />
