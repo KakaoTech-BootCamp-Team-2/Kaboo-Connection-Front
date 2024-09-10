@@ -10,7 +10,7 @@ const ChatRoom = (props) => {
     const { uuid, name } = props;
     const [messages, setMessages] = useState([]);
     const [message, setMessage] = useState("");
-    const currentUsername = '홍창기'; // 현재 사용자 설정
+    const currentUsername = localStorage.getItem('username'); // 현재 사용자 설정
     const roomId = uuid;
     const [stompClient, setStompClient] = useState(null); // STOMP 클라이언트 객체 저장
 
@@ -88,24 +88,11 @@ const ChatRoom = (props) => {
             message: message,
         };
 
-        // 서버로 메시지 발행 (전송)
         stompClient.send("/pub/messages", {}, JSON.stringify(chatMessage));
-
-        // 클라이언트에서 즉시 메시지 추가
-        setMessages((prevMessages) => [
-            ...prevMessages,
-            {
-                id: Date.now(),
-                username: chatMessage.username,
-                message: chatMessage.message,
-                time: new Date().toLocaleTimeString(),
-                isCurrentUser: true,
-            },
-        ]);
 
         console.log("전송된 메시지:", chatMessage);
 
-        setMessage(""); // 입력창 초기화
+        setMessage("");
     };
 
     return (
