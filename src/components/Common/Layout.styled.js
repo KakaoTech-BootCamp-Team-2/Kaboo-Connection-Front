@@ -4,7 +4,6 @@ import styled from "@emotion/styled";
 export const LayoutContainer = styled.div`
   position: relative;
   width: 100vw;
-
   display: flex;
   flex-direction: column; // 세로 방향으로 정렬
   z-index: 0; // 배경보다 앞에 위치
@@ -18,5 +17,6 @@ export const MainContent = styled.main`
   display: flex;
   /* justify-content: space-around; */
   align-items: center;
+  justify-content: ${({ $isCenter }) => ($isCenter ? "center" : "flex-start")};
   flex-direction: column;
 `;
