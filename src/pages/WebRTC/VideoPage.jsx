@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import Layout from "../../components/Common/Layout";
 import * as S from "./style";
 import { io } from "socket.io-client";
+import MiniLayout from "../../components/Common/miniLayout";
 
 const RTCPage = () => {
   const socketRef = useRef(null);
@@ -114,27 +115,42 @@ const RTCPage = () => {
 
   return (
     <Layout>
-      <h1>실시간 화상 채팅</h1>
-
-      <S.StyledDiv>
-        <video
-          ref={myVideoRef}
-          autoPlay
-          playsInline
-          style={{ width: "300px", borderRadius: "20px" }}
-        />
-        <video
-          ref={remoteVideoRef}
-          autoPlay
-          playsInline
-          style={{
-            width: "300px",
-            transform: "rotateY(180deg)",
-            WebkitTransform: "rotateY(180deg)",
-            MozTransform: "rotateY(180deg)",
-          }}
-        />
-      </S.StyledDiv>
+      <MiniLayout
+        text={"000님과의 실시간 커넥션"}
+        layerWidth={"70%"}
+        isButton={true}
+      >
+        <S.VideoLayout>
+          <S.VideoBox>
+            <video
+              ref={myVideoRef}
+              autoPlay
+              playsInline
+              style={{
+                width: "400px",
+                borderRadius: "20px",
+                transform: "rotateY(180deg)",
+                WebkitTransform: "rotateY(180deg)",
+                MozTransform: "rotateY(180deg)",
+              }}
+            />
+          </S.VideoBox>
+          <S.VideoBox>
+            <video
+              ref={remoteVideoRef}
+              autoPlay
+              playsInline
+              style={{
+                width: "400px",
+                borderRadius: "20px",
+                transform: "rotateY(180deg)",
+                WebkitTransform: "rotateY(180deg)",
+                MozTransform: "rotateY(180deg)",
+              }}
+            />
+          </S.VideoBox>
+        </S.VideoLayout>
+      </MiniLayout>
     </Layout>
   );
 };
