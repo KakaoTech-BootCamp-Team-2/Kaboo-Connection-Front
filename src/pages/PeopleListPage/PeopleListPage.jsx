@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Layout from "../../components/Common/Layout.jsx";
 import MiniLayout from "../../components/Common/miniLayout.jsx";
 import PeopleCard from "../../components/PeopleListComponents/PeopleCard/peopleCard.jsx";
-import fetchMembersList from "../../services/fetchMembersList.js";
-import dummyImages1 from "../../assets/dummyImages/peopleList.jpeg"
+import { PeopleListCall } from "../../api/PeopleListCall.js"; // PeopleListCall 불러오기
+import dummyImages1 from "../../assets/dummyImages/peopleList.jpeg";
 
 export const PeopleListPage = () => {
     const navigate = useNavigate();
@@ -16,7 +16,8 @@ export const PeopleListPage = () => {
         const displayMembers = async () => {
             setIsLoading(true);
             try {
-                const membersData = await fetchMembersList();
+                // fetchMembersList 대신 PeopleListCall 사용
+                const membersData = await PeopleListCall();
                 console.log('Fetched Members:', membersData.data); // 데이터 구조를 확인하기 위해 콘솔에 출력
                 if (membersData && membersData.data && membersData.data.memberList) {
                     setMembers(membersData.data.memberList);
@@ -34,7 +35,6 @@ export const PeopleListPage = () => {
 
         displayMembers();
     }, []);
-;
 
     const handleCardClick = () => {
         navigate('/details');
