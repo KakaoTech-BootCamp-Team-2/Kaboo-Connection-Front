@@ -15,6 +15,7 @@ function ChatMain() {
 
 
   useEffect(() => {
+    console.log(nowUser,'현재 사용자')
     const fetchChatList = async () => {
       try {
         const response = await getChatList(nowUser);
