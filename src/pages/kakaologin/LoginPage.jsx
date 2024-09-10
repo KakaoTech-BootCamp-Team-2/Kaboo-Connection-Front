@@ -1,30 +1,16 @@
-import React from 'react';
-
+import React from "react";
+import { Link } from "react-router-dom";
 function LoginPage() {
-    const handleLogin = () => {
-        try {
-            console.log('Attempting to redirect to OAuth provider...');
-
-            // Redirection URL 로그 추가
-            // const redirectUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${kakaoClientId}&redirect_uri=${redirectUri}&response_type=code`;
-            const redirectUrl = "http://localhost:8081/oauth2/authorization/kakao";
-            console.log('Redirect URL:', redirectUrl);
-
-            window.location.href = redirectUrl;
-            console.log('Redirection triggered.');
-        } catch (error) {
-            console.error('Error during redirection:', error);
-        }
-    };
-
-
-
-    return (
-        <div>
-            <h2>Login Page</h2>
-            <button onClick={handleLogin}>Login with kakao</button>
-        </div>
-    );
+  return (
+    <div>
+      <h2>Login Page</h2>
+      <Link
+        to={`${import.meta.env.VITE_AUTH_BASE_URL}/oauth2/authorization/kakao?client_id=${import.meta.env.VITE_KAKAO_CLIENT_ID}&redirect_uri=${import.meta.env.VITE_KAKAO_REDIRECT_URI}&response_type=code`}
+      >
+        로그인
+      </Link>
+    </div>
+  );
 }
 
 export default LoginPage;
