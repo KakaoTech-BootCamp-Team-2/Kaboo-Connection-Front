@@ -15,6 +15,12 @@ function LoginPage() {
   return (
     <div>
       <h2>Login Page</h2>
+      <form
+        method="POST"
+        action={`${import.meta.env.VITE_AUTH_BASE_URL}/oauth2/authorization/kakao?client_id=${import.meta.env.VITE_KAKAO_CLIENT_ID}&redirect_uri=${import.meta.env.VITE_KAKAO_REDIRECT_URI}&response_type=code`}
+      >
+        <button>테스트</button>
+      </form>
       <Link
         to={`${import.meta.env.VITE_AUTH_BASE_URL}/oauth2/authorization/kakao`}
       >
