@@ -11,23 +11,13 @@ function ChatMain() {
   const [chatList, setChatList] = useState([])
   const [selectedChatRoom, setSelectedChatRoom] = useState(null);
 
-  const getUsernameFromCookieOrLocalStorage = () => {
-    // 쿠키에서 username 값을 먼저 확인
-    const usernameFromCookie = document.cookie
-        .split("; ")
-        .find((row) => row.startsWith("username="))
-        ?.split("=")[1];
 
-    // 쿠키에 값이 없으면 localStorage에서 가져오기
-    if (usernameFromCookie) {
-      return usernameFromCookie;
-    } else {
-      return localStorage.getItem("username");
-    }
+  const getUsername = () => {
+    const usernameFromLocalStorage = localStorage.getItem('username');
+    return usernameFromLocalStorage || "kakao_3691500201";
   };
-  const nowUser = getUsernameFromCookieOrLocalStorage();
-  console.log('cookie-get:', nowUser);
 
+  const nowUser = getUsername();
 
   useEffect(() => {
     console.log(nowUser,'현재 사용자')
